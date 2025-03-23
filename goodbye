@@ -1,0 +1,71 @@
+Skip to content
+Navigation Menu
+Raghuveir
+Boardgame
+
+Type / to search
+Code
+Pull requests
+Actions
+Projects
+Security
+Insights
+Settings
+Commit f08893d
+jaiswaladi246
+jaiswaladi246
+authored
+on Jul 28, 2024
+Verified
+Update maven.yml
+main
+1 parent 
+648913e
+ commit 
+f08893d
+File tree
+Filter files…
+.github/workflows
+maven.yml
+1 file changed
++10
+-6
+lines changed
+Search within code
+ 
+‎.github/workflows/maven.yml
++10
+-6
+Original file line number	Diff line number	Diff line change
+@@ -34,6 +34,15 @@ jobs:
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+
+    - name: SonarQube Quality Gate check
+      id: sonarqube-quality-gate-check
+      uses: sonarsource/sonarqube-quality-gate-action@master
+      # Force to fail step after specific time.
+      timeout-minutes: 5
+      env:
+       SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+       SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+    - name: Set up QEMU
+      uses: docker/setup-qemu-action@v3
+
+@@ -58,11 +67,6 @@ jobs:
+      run: |
+          docker push adijaiswal/boardgame:latest
+    - name: Kubectl Action
+      uses: tale/kubectl-action@v1
+      with:
+        base64-kube-config: ${{ secrets.KUBE_CONFIG }}
+    - run: |
+          kubectl apply -f deployment-service.yaml
+0 commit comments
+Comments
+0
+ (0)
+Comment
+You're not receiving notifications from this thread.
+
+
